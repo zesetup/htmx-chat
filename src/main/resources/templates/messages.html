@@ -1,7 +1,7 @@
 <table>
   <tbody>
   <tr th:each="message : ${messages}">
-    <td><span th:text="${message.getUserName}"> text </span></td>
+    <td><span th:text="${message.getUserName} + ':'"> text </span></td>
     <td><span th:text="${message.getText}"> text </span></td>
   </tr>
   </tbody>

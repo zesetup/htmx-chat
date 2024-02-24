@@ -1,4 +1,4 @@
-Hello <p th:text=${username}/>
+Hello, <p th:text=${username}/>
 <table>
   <thead>
   <tr>
@@ -18,7 +18,7 @@ Hello <p th:text=${username}/>
         </tbody>
       </table>
     </td>
-    <td>
+    <td hx-trigger="every 1s" hx-post="users/">
       <table>
         <tbody>
         <tr th:each="user : ${users}">

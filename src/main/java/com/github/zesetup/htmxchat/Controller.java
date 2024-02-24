@@ -43,6 +43,13 @@ public class Controller {
     return "messages";
   }
 
+  @PostMapping({"users/"})
+  public String getUsers(Model model) {
+    Chat chat = chatService.getChat();
+    model.addAttribute("users", chat.getUsers());
+    return "users";
+  }
+
 
   @GetMapping({"chat-login/"})
   public String hello(@RequestParam(value = "username", required = true) String userName,
