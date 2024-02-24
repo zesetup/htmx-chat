@@ -1,0 +1,43 @@
+Hello <p th:text=${username}/>
+<table>
+  <thead>
+  <tr>
+    <th scope="col">Messages</th>
+    <th scope="col">Users</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td id="messages" hx-trigger="every 1s" hx-post="messages/">
+      <table>
+        <tbody>
+        <tr th:each="message : ${messages}">
+          <td><span th:text="${message.getUserName}"> text </span></td>
+          <td><span th:text="${message.getText}"> text </span></td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tbody>
+        <tr th:each="user : ${users}">
+          <td><span th:text="${user.getName}"> Title </span></td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <form hx-post="/send-message/" hx-target="#messages" style="width:400px">
+        <input hx-trigger="keyup changed delay:500ms"  hx-target="#next-button"
+               id="message" name="messageText" value="" type="text" min="1" max="20000">
+        <input name="userId" type="hidden" th:value="${userId}">
+        <button type="submit"  id="next-button">Say</button>
+      </form>
+  </tr>
+  </tbody>
+</table>
+
+
