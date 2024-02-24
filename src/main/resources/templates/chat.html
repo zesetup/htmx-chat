@@ -30,7 +30,7 @@ Hello, <p th:text=${username}/>
   </tr>
   <tr>
     <td colspan="2">
-      <form hx-post="/send-message/" hx-target="#messages" style="width:400px">
+      <form hx-post="send-message/" hx-target="#messages" style="width:400px">
         <input hx-trigger="keyup changed delay:500ms"  hx-target="#next-button"
                id="message" name="messageText" value="" type="text" min="1" max="20000">
         <input name="userId" type="hidden" th:value="${userId}">
